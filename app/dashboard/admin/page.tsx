@@ -9,7 +9,7 @@ import { OverallChart } from "@/components/dashboard/overall-chart"
 import { IndividualChart } from "@/components/dashboard/individual-chart"
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Users, User, Activity, FileCheck, Loader2 } from "lucide-react"
+import { Users, User, Activity, FileCheck, Loader2, FileText } from "lucide-react"
 import { AspectBarChart } from "@/components/dashboard/aspect-bar-chart"
 
 
@@ -277,93 +277,114 @@ export default function AdminDashboardPage() {
     }
 
     return (
-        <div className="flex-1 space-y-4 p-8 pt-6">
-            <div className="flex items-center justify-between space-y-2">
-                <h2 className="text-3xl font-bold tracking-tight">Admin Dashboard</h2>
-
+        <div className="flex-1 space-y-6">
+            {/* Header with gradient accent */}
+            <div className="flex items-center justify-between">
+                <div>
+                    <h1 className="text-4xl font-bold tracking-tight">Admin Dashboard</h1>
+                    <p className="text-muted-foreground mt-1">Monitor dan kelola penilaian kinerja pegawai</p>
+                </div>
             </div>
-            <Tabs defaultValue="overview" className="space-y-4">
-                <TabsList>
-                    <TabsTrigger value="overview">Overview</TabsTrigger>
-                    <TabsTrigger value="individual">Individual Report</TabsTrigger>
+
+            <Tabs defaultValue="overview" className="space-y-6">
+                {/* Modern tab list with Linear styling */}
+                <TabsList className="bg-muted/50 p-1">
+                    <TabsTrigger value="overview" className="data-[state=active]:sidebar-gradient data-[state=active]:text-white">
+                        Overview
+                    </TabsTrigger>
+                    <TabsTrigger value="individual" className="data-[state=active]:sidebar-gradient data-[state=active]:text-white">
+                        Individual Report
+                    </TabsTrigger>
                 </TabsList>
-                <TabsContent value="overview" className="space-y-4">
+
+                <TabsContent value="overview" className="space-y-6">
+                    {/* Stat Cards with gradient hover effects */}
                     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                        <Card>
+                        <Card className="gradient-border card-hover border-muted">
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                 <CardTitle className="text-sm font-medium">
                                     Total Pegawai
                                 </CardTitle>
-                                <Users className="h-4 w-4 text-muted-foreground" />
+                                <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                                    <Users className="h-4 w-4 text-primary" />
+                                </div>
                             </CardHeader>
                             <CardContent>
-                                <div className="text-2xl font-bold">{stats.totalStaff}</div>
-                                <p className="text-xs text-muted-foreground">
+                                <div className="text-3xl font-bold tracking-tight">{stats.totalStaff}</div>
+                                <p className="text-xs text-muted-foreground mt-1">
                                     Pegawai terdaftar
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
+
+                        <Card className="gradient-border card-hover border-muted">
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                 <CardTitle className="text-sm font-medium">
                                     Progress Penilaian
                                 </CardTitle>
-                                <Activity className="h-4 w-4 text-muted-foreground" />
+                                <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                                    <Activity className="h-4 w-4 text-primary" />
+                                </div>
                             </CardHeader>
                             <CardContent>
-                                <div className="text-2xl font-bold">{stats.participationRate}%</div>
-                                <p className="text-xs text-muted-foreground">
-                                    {stats.totalAssessments} dari total estimasi penilaian
+                                <div className="text-3xl font-bold tracking-tight">{stats.participationRate}%</div>
+                                <p className="text-xs text-muted-foreground mt-1">
+                                    {stats.totalAssessments} penilaian selesai
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
+
+                        <Card className="gradient-border card-hover border-muted">
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                 <CardTitle className="text-sm font-medium">Rata-rata Nilai</CardTitle>
-                                <FileCheck className="h-4 w-4 text-muted-foreground" />
+                                <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                                    <FileCheck className="h-4 w-4 text-primary" />
+                                </div>
                             </CardHeader>
                             <CardContent>
-                                <div className="text-2xl font-bold">{stats.averageScore}</div>
-                                <p className="text-xs text-muted-foreground">
+                                <div className="text-3xl font-bold tracking-tight">{stats.averageScore}</div>
+                                <p className="text-xs text-muted-foreground mt-1">
                                     Dari seluruh aspek BerAKHLAK
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
+
+                        <Card className="gradient-border card-hover border-muted">
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                 <CardTitle className="text-sm font-medium">Penilai Teraktif</CardTitle>
-                                <User className="h-4 w-4 text-muted-foreground" />
+                                <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                                    <User className="h-4 w-4 text-primary" />
+                                </div>
                             </CardHeader>
                             <CardContent>
-                                <div className="text-2xl font-bold truncate" title={stats.topEvaluator.name}>{stats.topEvaluator.name}</div>
-                                <p className="text-xs text-muted-foreground">
+                                <div className="text-2xl font-bold tracking-tight truncate" title={stats.topEvaluator.name}>
+                                    {stats.topEvaluator.name}
+                                </div>
+                                <p className="text-xs text-muted-foreground mt-1">
                                     Menilai {stats.topEvaluator.count} pegawai
                                 </p>
                             </CardContent>
                         </Card>
                     </div>
 
-                    <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-7">
-                        <Card className="col-span-7">
-                            <CardHeader>
-                                <CardTitle>Rata-rata Nilai BerAKHLAK</CardTitle>
-                                <CardDescription>
-                                    Perbandingan nilai rata-rata seluruh pegawai di setiap aspek.
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent className="pl-2">
-                                <OverallChart data={chartData} />
-                            </CardContent>
-                        </Card>
-                    </div>
-
-
-
+                    {/* Chart Section with enhanced styling */}
+                    <Card className="border-muted">
+                        <CardHeader>
+                            <CardTitle className="text-xl">Rata-rata Nilai BerAKHLAK</CardTitle>
+                            <CardDescription>
+                                Perbandingan nilai rata-rata seluruh pegawai di setiap aspek
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="pl-2">
+                            <OverallChart data={chartData} />
+                        </CardContent>
+                    </Card>
                 </TabsContent>
-                <TabsContent value="individual" className="space-y-4">
+
+                <TabsContent value="individual" className="space-y-6">
                     <div className="flex items-center space-x-4">
                         <Select value={selectedStaffId} onValueChange={setSelectedStaffId}>
-                            <SelectTrigger className="w-[280px]">
+                            <SelectTrigger className="w-[320px] border-muted">
                                 <SelectValue placeholder="Pilih Pegawai" />
                             </SelectTrigger>
                             <SelectContent>
@@ -375,19 +396,20 @@ export default function AdminDashboardPage() {
                             </SelectContent>
                         </Select>
                     </div>
+
                     {selectedStaffId ? (
-                        <div className="space-y-4">
-                            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                                <Card className="col-span-4">
+                        <div className="space-y-6">
+                            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-7">
+                                <Card className="col-span-4 border-muted">
                                     <CardHeader>
-                                        <CardTitle>Profil Kompetensi (Radar)</CardTitle>
+                                        <CardTitle className="text-xl">Profil Kompetensi (Radar)</CardTitle>
                                         <CardDescription>
-                                            Visualisasi detail nilai BerAKHLAK untuk pegawai terpilih.
+                                            Visualisasi detail nilai BerAKHLAK untuk pegawai terpilih
                                         </CardDescription>
                                     </CardHeader>
                                     <CardContent className="pl-2">
                                         {isLoadingIndividual ? (
-                                            <div className="flex justify-center py-8"><Loader2 className="animate-spin" /></div>
+                                            <div className="flex justify-center py-8"><Loader2 className="animate-spin text-primary" /></div>
                                         ) : individualChartData.length > 0 ? (
                                             <IndividualChart data={individualChartData} />
                                         ) : (
@@ -395,46 +417,47 @@ export default function AdminDashboardPage() {
                                         )}
                                     </CardContent>
                                 </Card>
-                                <Card className="col-span-3">
+                                <Card className="col-span-3 border-muted">
                                     <CardHeader>
-                                        <CardTitle>Detail Nilai Per Aspek</CardTitle>
+                                        <CardTitle className="text-xl">Detail Nilai Per Aspek</CardTitle>
                                         <CardDescription>
-                                            Rincian nilai rata-rata untuk setiap aspek BerAKHLAK.
+                                            Rincian nilai rata-rata untuk setiap aspek BerAKHLAK
                                         </CardDescription>
                                     </CardHeader>
                                     <CardContent className="space-y-4">
                                         {isLoadingIndividual ? (
-                                            <div className="flex justify-center py-8"><Loader2 className="animate-spin" /></div>
+                                            <div className="flex justify-center py-8"><Loader2 className="animate-spin text-primary" /></div>
                                         ) : (
                                             <AspectBarChart data={individualChartData} />
                                         )}
                                     </CardContent>
                                 </Card>
                             </div>
-                            {/* New Feedback Section */}
-                            <Card>
+
+                            {/* Enhanced Feedback Section */}
+                            <Card className="border-muted">
                                 <CardHeader>
-                                    <CardTitle>Masukan & Saran (Anonim)</CardTitle>
+                                    <CardTitle className="text-xl">Masukan & Saran (Anonim)</CardTitle>
                                     <CardDescription>
                                         Kumpulan komentar dan saran yang diberikan oleh rekan kerja. Identitas penilai dirahasiakan.
                                     </CardDescription>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     {isLoadingIndividual ? (
-                                        <div className="flex justify-center py-8"><Loader2 className="animate-spin" /></div>
+                                        <div className="flex justify-center py-8"><Loader2 className="animate-spin text-primary" /></div>
                                     ) : feedbackList.length > 0 ? (
                                         <div className="grid gap-4 md:grid-cols-2">
                                             {feedbackList.map((item) => (
-                                                <div key={item.id} className="p-4 rounded-lg bg-muted/30 border border-muted-foreground/10">
-                                                    <div className="flex justify-between items-start mb-2">
-                                                        <span className="text-xs font-semibold px-2 py-0.5 rounded bg-primary/10 text-primary uppercase">
+                                                <div key={item.id} className="p-4 rounded-lg bg-muted/40 border border-muted hover:border-primary/30 transition-colors">
+                                                    <div className="flex justify-between items-start mb-3">
+                                                        <span className="text-xs font-semibold px-2.5 py-1 rounded-md sidebar-gradient text-white uppercase tracking-wide">
                                                             {item.aspect.replace(/-/g, ' ')}
                                                         </span>
                                                         <span className="text-xs text-muted-foreground">
                                                             {new Date(item.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
                                                         </span>
                                                     </div>
-                                                    <p className="text-sm text-foreground/90 italic">
+                                                    <p className="text-sm leading-relaxed text-foreground/90 italic">
                                                         "{item.comment}"
                                                     </p>
                                                 </div>
@@ -447,8 +470,9 @@ export default function AdminDashboardPage() {
                             </Card>
                         </div>
                     ) : (
-                        <div className="text-center py-12 text-muted-foreground">
-                            Silahkan pilih pegawai terlebih dahulu.
+                        <div className="text-center py-16 text-muted-foreground">
+                            <FileText className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                            <p className="text-lg">Silahkan pilih pegawai terlebih dahulu.</p>
                         </div>
                     )}
                 </TabsContent>
