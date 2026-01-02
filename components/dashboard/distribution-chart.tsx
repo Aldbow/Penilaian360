@@ -23,7 +23,7 @@ export function DistributionChart({ data }: DistributionChartProps) {
                     outerRadius={80}
                     paddingAngle={5}
                     dataKey="value"
-                    label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+                    label={({ percent }) => `${((percent ?? 0) * 100).toFixed(0)}%`}
                 >
                     {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
