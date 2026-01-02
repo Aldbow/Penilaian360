@@ -20,37 +20,37 @@ const aspects = [
     {
         id: "berorientasi-pelayanan",
         title: "Berorientasi Pelayanan",
-        description: "Keinginan memberikan pelayanan prima demi kepuasan masyarakat.",
+        description: "1. Memahami dan memenuhi kebutuhan masyarakat.\n\n2. Ramah, cekatan, solutif, dan dapat diandalkan.\n\n3. Melakukan perbaikan tiada henti.",
     },
     {
         id: "akuntabel",
         title: "Akuntabel",
-        description: "Bertanggung jawab atas kepercayaan yang diberikan.",
+        description: "1. Melaksanakan tugas dengan jujur dan bertanggung jawab cermat disiplin dan berintegritas tinggi.\n\n2. Menggunakan kekayaan dan BMN secara bertanggung jawab efektif dan efisien.\n\n3. Tidak menyalahgunakan kewenangan jabatan.",
     },
     {
         id: "kompeten",
         title: "Kompeten",
-        description: "Terus belajar dan mengembangkan kapabilitas.",
+        description: "1. Meningkatkan kompetensi diri untuk menjawab tantangan yang selalu berubah.\n\n2. Membantu orang lain belajar.\n\n3. Melaksanakan tugas dengan kualitas terbaik.",
     },
     {
         id: "harmonis",
         title: "Harmonis",
-        description: "Saling peduli dan menghargai perbedaan.",
+        description: "1. Menghargai setiap orang apapun latar belakangnya.\n\n2. Suka menolong orang lain.\n\n3. Membangun lingkungan kerja yang kondusif.",
     },
     {
         id: "loyal",
         title: "Loyal",
-        description: "Berdedikasi dan mengutamakan kepentingan Bangsa dan Negara.",
+        description: "1. Memegang teguh ideologi Pancasila, Undang-Undang Dasar Negara Republik Indonesia Tahun 1945, setia pada NKRI serta pemerintahan yang sah.\n\n2. Menjaga nama baik sesama ASN, Pimpinan, Instansi dan Negara.\n\n3. Menjaga rahasia jabatan dan negara.",
     },
     {
         id: "adaptif",
         title: "Adaptif",
-        description: "Terus berinovasi dan antusias dalam menggerakkan ataupun menghadapi perubahan.",
+        description: "1. Cepat menyesuaikan diri menghadapi perubahan.\n\n2. Terus berinovasi dan mengembangkan kreativitas.\n\n3. Bertindak proaktif.",
     },
     {
         id: "kolaboratif",
         title: "Kolaboratif",
-        description: "Membangun kerja sama yang sinergis.",
+        description: "1. Memberi kesempatan kepada berbagai pihak untuk berkontribusi.\n\n2. Terbuka dalam bekerja sama untuk menghasilkan nilai tambah.\n\n3. Menggerakkan pemanfaatan berbagai sumber daya untuk tujuan bersama.",
     },
 ]
 
@@ -191,7 +191,7 @@ export default function AssessmentPage({ params }: { params: Promise<{ id: strin
                                     </span>
                                 ) : null}
                             </CardTitle>
-                            <CardDescription className="text-base">{aspect.description}</CardDescription>
+                            <CardDescription className="text-base whitespace-pre-line">{aspect.description}</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-6">
                             <div className="space-y-2">
