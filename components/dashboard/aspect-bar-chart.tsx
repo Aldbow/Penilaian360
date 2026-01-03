@@ -24,6 +24,36 @@ const getColor = (score: number) => {
     return COLORS[3]
 }
 
+const CustomLabel = (props: any) => {
+    const { x, y, width, height, value } = props
+    const offset = 10;
+
+    return (
+        <g>
+            <rect
+                x={x + width + offset}
+                y={y + (height - 24) / 2}
+                width={35}
+                height={24}
+                fill="#1f2937"
+                stroke="#374151"
+                rx={4}
+            />
+            <text
+                x={x + width + offset + 17.5}
+                y={y + height / 2}
+                fill="#e5e7eb"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize={12}
+                fontWeight={600}
+            >
+                {value}
+            </text>
+        </g>
+    )
+}
+
 export function AspectBarChart({ data }: AspectBarChartProps) {
     // Transform subject names for shorter labels if needed, or keep as is
     const chartData = data.map(item => ({
@@ -33,7 +63,7 @@ export function AspectBarChart({ data }: AspectBarChartProps) {
 
     return (
         <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
+            <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 60, left: 0, bottom: 5 }}>
                 <XAxis type="number" domain={[0, 100]} hide />
                 <YAxis
                     dataKey="subject"
@@ -52,7 +82,7 @@ export function AspectBarChart({ data }: AspectBarChartProps) {
                     {chartData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={getColor(entry.A)} />
                     ))}
-                    <LabelList dataKey="A" position="right" fill="#e5e7eb" fontSize={12} formatter={(val: any) => `${val}`} />
+                    <LabelList dataKey="A" content={<CustomLabel />} />
                 </Bar>
             </BarChart>
         </ResponsiveContainer>

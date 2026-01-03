@@ -35,7 +35,28 @@ export default function AdminDashboardPage() {
     const [feedbackList, setFeedbackList] = useState<{ id: string, aspect: string, comment: string, created_at: string, rating: number }[]>([])
     const [isLoadingIndividual, setIsLoadingIndividual] = useState(false)
 
+    // Month Selection State
+    const [monthOptions, setMonthOptions] = useState<{ value: string, label: string }[]>([])
+    const [selectedMonth, setSelectedMonth] = useState<string>("")
+
     useEffect(() => {
+        // Generate last 12 months
+        const options = []
+        const today = new Date()
+        for (let i = 0; i < 12; i++) {
+            const d = new Date(today.getFullYear(), today.getMonth() - i, 1)
+            const value = d.toISOString().split('T')[0] // YYYY-MM-DD
+            const label = d.toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })
+            options.push({ value, label })
+        }
+        setMonthOptions(options)
+        setSelectedMonth(options[0].value)
+    }, [])
+
+
+    useEffect(() => {
+        if (!selectedMonth) return
+
         async function fetchAdminData() {
             const supabase = createClient()
             const { data: { user } } = await supabase.auth.getUser()
@@ -76,11 +97,12 @@ export default function AdminDashboardPage() {
                 .from('assessments')
                 .select('*', { count: 'exact', head: true })
                 .eq('status', 'completed')
+                .eq('assessment_month', selectedMonth) // Filter by Month
 
             const totalCompleted = assessmentCount || 0
 
             // 3. Average Score & Chart Data & Distribution
-            // Fetch all scores with assessment info, strictly filtering for COMPLETED assessments
+            // Fetch all scores with assessment info, strictly filtering for COMPLETED assessments and MONTH
             const { data: scores } = await supabase
                 .from('assessment_scores')
                 .select(`
@@ -88,10 +110,12 @@ export default function AdminDashboardPage() {
                     aspect,
                     assessments!inner (
                         evaluatee_id,
-                        status
+                        status,
+                        assessment_month
                     )
                 `)
                 .eq('assessments.status', 'completed')
+                .eq('assessments.assessment_month', selectedMonth)
 
             let avgScore = 0
             const aspectScores: Record<string, { total: number, count: number }> = {}
@@ -144,6 +168,7 @@ export default function AdminDashboardPage() {
                 .from('assessments')
                 .select('evaluator_id')
                 .eq('status', 'completed')
+                .eq('assessment_month', selectedMonth)
 
             const evaluatorCounts: Record<string, number> = {}
             completedAssessments?.forEach(a => {
@@ -177,10 +202,10 @@ export default function AdminDashboardPage() {
         }
 
         fetchAdminData()
-    }, [router])
+    }, [router, selectedMonth])
 
     useEffect(() => {
-        if (!selectedStaffId) return
+        if (!selectedStaffId || !selectedMonth) return
 
         async function fetchIndividualData() {
             setIsLoadingIndividual(true)
@@ -192,6 +217,7 @@ export default function AdminDashboardPage() {
                 .select('id')
                 .eq('evaluatee_id', selectedStaffId)
                 .eq('status', 'completed')
+                .eq('assessment_month', selectedMonth)
 
             const assessmentIds = assessments?.map(a => a.id) || []
 
@@ -261,7 +287,7 @@ export default function AdminDashboardPage() {
         }
 
         fetchIndividualData()
-    }, [selectedStaffId])
+    }, [selectedStaffId, selectedMonth])
 
 
     if (isLoading) {
@@ -284,6 +310,18 @@ export default function AdminDashboardPage() {
                     <h1 className="text-4xl font-bold tracking-tight">Admin Dashboard</h1>
                     <p className="text-muted-foreground mt-1">Monitor dan kelola penilaian kinerja pegawai</p>
                 </div>
+                <Select value={selectedMonth} onValueChange={setSelectedMonth}>
+                    <SelectTrigger className="w-[200px] border-muted bg-background">
+                        <SelectValue placeholder="Pilih Bulan" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {monthOptions.map((month) => (
+                            <SelectItem key={month.value} value={month.value}>
+                                {month.label}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
             </div>
 
             <Tabs defaultValue="overview" className="space-y-6">
