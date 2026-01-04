@@ -25,6 +25,8 @@ export default function AdminDashboardPage() {
         topEvaluator: { name: '-', count: 0 }
     })
     const [chartData, setChartData] = useState<{ name: string; total: number }[]>([])
+    // New State for Evaluator Progress
+    const [evaluatorStats, setEvaluatorStats] = useState<{ id: string, name: string, completed: number, target: number }[]>([])
 
 
     // Individual Report State
@@ -198,6 +200,28 @@ export default function AdminDashboardPage() {
                 topEvaluator: { name: topEvaluatorName, count: maxCount }
             })
 
+            // 5. Calculate Per-Employee Progress
+            if (staffData) {
+                const targetPerPerson = Math.max(0, totalStaff - 1) // Exclude self
+                const progressData = staffData.map(staff => {
+                    const count = evaluatorCounts[staff.id] || 0
+                    return {
+                        id: staff.id,
+                        name: staff.full_name,
+                        completed: count,
+                        target: targetPerPerson
+                    }
+                })
+                // Sort: Incomplete first, then by name
+                progressData.sort((a, b) => {
+                    const aPercent = a.target > 0 ? a.completed / a.target : 0
+                    const bPercent = b.target > 0 ? b.completed / b.target : 0
+                    if (aPercent === bPercent) return a.name.localeCompare(b.name)
+                    return aPercent - bPercent
+                })
+                setEvaluatorStats(progressData)
+            }
+
             setIsLoading(false)
         }
 
@@ -330,6 +354,9 @@ export default function AdminDashboardPage() {
                     <TabsTrigger value="overview" className="data-[state=active]:sidebar-gradient data-[state=active]:text-white">
                         Overview
                     </TabsTrigger>
+                    <TabsTrigger value="status" className="data-[state=active]:sidebar-gradient data-[state=active]:text-white">
+                        Status Penilaian
+                    </TabsTrigger>
                     <TabsTrigger value="individual" className="data-[state=active]:sidebar-gradient data-[state=active]:text-white">
                         Individual Report
                     </TabsTrigger>
@@ -415,6 +442,68 @@ export default function AdminDashboardPage() {
                         </CardHeader>
                         <CardContent className="pl-2">
                             <OverallChart data={chartData} />
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+
+                <TabsContent value="status" className="space-y-6">
+                    <Card className="border-muted">
+                        <CardHeader>
+                            <CardTitle className="text-xl">Status Penilaian Pegawai</CardTitle>
+                            <CardDescription>
+                                Memantau kelengkapan penilaian yang dilakukan oleh setiap pegawai (Target: {stats.totalStaff > 0 ? stats.totalStaff - 1 : 0} rekan)
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="rounded-md border border-muted">
+                                <div className="grid grid-cols-12 gap-4 border-b border-muted bg-muted/50 p-4 text-sm font-medium">
+                                    <div className="col-span-4">Nama Pegawai</div>
+                                    <div className="col-span-6 text-center">Progress</div>
+                                    <div className="col-span-2 text-center">Status</div>
+                                </div>
+                                <div className="divide-y divide-muted">
+                                    {evaluatorStats.map((staff) => {
+                                        const percentage = staff.target > 0 ? Math.round((staff.completed / staff.target) * 100) : 100
+                                        const isComplete = staff.completed >= staff.target
+                                        const isInProgres = staff.completed > 0 && !isComplete
+
+                                        return (
+                                            <div key={staff.id} className="grid grid-cols-12 gap-4 p-4 text-sm items-center hover:bg-muted/30 transition-colors">
+                                                <div className="col-span-4 font-medium">{staff.name}</div>
+                                                <div className="col-span-6">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="flex-1 h-2.5 rounded-full bg-muted overflow-hidden">
+                                                            <div
+                                                                className={`h-full rounded-full transition-all duration-500 ${isComplete ? "bg-green-500" : isInProgres ? "bg-amber-500" : "bg-red-500"
+                                                                    }`}
+                                                                style={{ width: `${percentage}%` }}
+                                                            />
+                                                        </div>
+                                                        <span className="text-xs text-muted-foreground w-12 text-right">
+                                                            {staff.completed} / {staff.target}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div className="col-span-2 text-center">
+                                                    {isComplete ? (
+                                                        <span className="inline-flex items-center rounded-full bg-green-500/15 px-2.5 py-0.5 text-xs font-medium text-green-600">
+                                                            Selesai
+                                                        </span>
+                                                    ) : isInProgres ? (
+                                                        <span className="inline-flex items-center rounded-full bg-amber-500/15 px-2.5 py-0.5 text-xs font-medium text-amber-600">
+                                                            Proses
+                                                        </span>
+                                                    ) : (
+                                                        <span className="inline-flex items-center rounded-full bg-red-500/15 px-2.5 py-0.5 text-xs font-medium text-red-600">
+                                                            Belum
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
                         </CardContent>
                     </Card>
                 </TabsContent>
