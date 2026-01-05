@@ -45,7 +45,7 @@ const CustomLabel = (props: any) => {
                 fill="#e5e7eb"
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fontSize={12}
+                fontSize={14}
                 fontWeight={600}
             >
                 {value}
@@ -69,7 +69,7 @@ export function AspectBarChart({ data }: AspectBarChartProps) {
                     dataKey="subject"
                     type="category"
                     width={110}
-                    tick={{ fontSize: 13, fill: "#e5e7eb", fontWeight: 500 }}
+                    tick={{ fontSize: 16, fill: "#e5e7eb", fontWeight: 500 }}
                     interval={0}
                 />
                 <Tooltip

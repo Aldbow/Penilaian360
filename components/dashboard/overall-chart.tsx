@@ -26,8 +26,8 @@ export function OverallChart({ data }: OverallChartProps) {
             <BarChart data={data}>
                 <XAxis
                     dataKey="name"
-                    stroke="#888888"
-                    fontSize={12}
+                    stroke="#e0e0e2"
+                    fontSize={16}
                     tickLine={false}
                     axisLine={false}
                 />
