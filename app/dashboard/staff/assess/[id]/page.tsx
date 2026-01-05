@@ -117,7 +117,8 @@ export default function AssessmentPage({ params }: { params: Promise<{ id: strin
         // 1. Ensure Assessment Record Exists (Upsert)
         // We use upsert to create if not exists, or get existing if it was pending
         const now = new Date()
-        const assessmentMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString() // First day of current month
+        // Use local date to avoid timezone offset issues
+        const assessmentMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-01`
 
         const { data: assessment, error: assessmentError } = await supabase
             .from("assessments")

@@ -30,6 +30,7 @@ export function OverallChart({ data }: OverallChartProps) {
                     fontSize={16}
                     tickLine={false}
                     axisLine={false}
+                    tickMargin={16}
                 />
                 <YAxis
                     stroke="#888888"

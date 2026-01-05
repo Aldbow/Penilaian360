@@ -9,7 +9,7 @@ import { OverallChart } from "@/components/dashboard/overall-chart"
 import { IndividualChart } from "@/components/dashboard/individual-chart"
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Users, User, Activity, FileCheck, Loader2, FileText } from "lucide-react"
+import { Users, User, Activity, FileCheck, Loader2, FileText, AlertCircle } from "lucide-react"
 import { AspectBarChart } from "@/components/dashboard/aspect-bar-chart"
 
 
@@ -47,7 +47,8 @@ export default function AdminDashboardPage() {
         const today = new Date()
         for (let i = 0; i < 12; i++) {
             const d = new Date(today.getFullYear(), today.getMonth() - i, 1)
-            const value = d.toISOString().split('T')[0] // YYYY-MM-DD
+            // Use local date to avoid timezone offset issues
+            const value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-01`
             const label = d.toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })
             options.push({ value, label })
         }
@@ -447,6 +448,7 @@ export default function AdminDashboardPage() {
                 </TabsContent>
 
                 <TabsContent value="status" className="space-y-6">
+                    {/* Existing Status Table */}
                     <Card className="border-muted">
                         <CardHeader>
                             <CardTitle className="text-xl">Status Penilaian Pegawai</CardTitle>
