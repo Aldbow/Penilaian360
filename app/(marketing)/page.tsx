@@ -24,7 +24,7 @@ export default function IndexPage() {
               Informasi
             </h2>
             <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-              Informasi dan pengumuman terkait kegiatan UKPBJ Kementerian Ketenagakerjaan.
+              Informasi dan pengumuman terkait penilaian 360 derajat.
             </p>
           </div>
         </ScrollReveal>
