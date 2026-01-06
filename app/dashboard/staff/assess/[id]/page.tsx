@@ -22,85 +22,85 @@ const aspects = [
     {
         id: "berorientasi-pelayanan",
         title: "Berorientasi Pelayanan",
-        description: "1. Memahami dan memenuhi kebutuhan masyarakat.\n\n2. Ramah, cekatan, solutif, dan dapat diandalkan.\n\n3. Melakukan perbaikan tiada henti.",
+        description: "1. Memahami dan memenuhi kebutuhan masyarakat.\n2. Ramah, cekatan, solutif, dan dapat diandalkan.\n3. Melakukan perbaikan tiada henti.",
         indicators: {
-            5: "Pegawai secara konsisten memberikan pelayanan yang luar biasa, proaktif mengidentifikasi dan memenuhi kebutuhan masyarakat, serta selalu mencari cara inovatif untuk meningkatkan kualitas layanan.",
-            4: "Pegawai memberikan pelayanan dengan baik, responsif terhadap kebutuhan masyarakat, dan aktif melakukan perbaikan berdasarkan masukan yang diterima.",
-            3: "Pegawai memberikan pelayanan sesuai standar, memahami kebutuhan dasar masyarakat, dan melakukan perbaikan ketika diminta.",
-            2: "Pegawai memberikan pelayanan minimal, kurang responsif terhadap kebutuhan masyarakat, dan jarang melakukan inisiatif perbaikan.",
-            1: "Pegawai tidak memberikan pelayanan yang memadai, tidak memahami kebutuhan masyarakat, dan tidak menunjukkan upaya perbaikan.",
+            5: "Mampu memahami kebutuhan masyarakat, kemudian memberikan pelayanan melebihi ekspektasi masyarakat dengan ramah, cekatan, solutif dan dapat diandalkan, serta terus melakukan perbaikan pelayanan.",
+            4: "Mampu memahami dan memenuhi kebutuhan masyarakat, serta memberikan pelayanan dengan ramah, cekatan, solutif dan dapat diandalkan.",
+            3: "Dalam memberikan pelayanan masih belum ramah, kurang cekatan, belum solutif dan kurang dapat diandalkan, tetapi dapat berbenah jika diberi masukan/bimbingan/arahan untuk perbaikan.",
+            2: "Kurang responsif atau kurang cekatan terhadap kebutuhan pelayanan, seringkali kurang ramah sehingga tidak dapat diandalkan untuk memberikan pelayanan.",
+            1: "Tidak memenuhi standar pelayanan, pelayanan yang diberikan tidak sesuai prosedur, tidak ramah, tidak cekatan, tidak solutif, serta tidak dapat diandalkan, bahkan terkadang timbul kekeliruan.",
         },
     },
     {
         id: "akuntabel",
         title: "Akuntabel",
-        description: "1. Melaksanakan tugas dengan jujur dan bertanggung jawab cermat disiplin dan berintegritas tinggi.\n\n2. Menggunakan kekayaan dan BMN secara bertanggung jawab efektif dan efisien.\n\n3. Tidak menyalahgunakan kewenangan jabatan.",
+        description: "1. Melaksanakan tugas dengan jujur dan bertanggung jawab cermat disiplin dan berintegritas tinggi.\n2. Menggunakan kekayaan dan BMN secara bertanggung jawab efektif dan efisien.\n3. Tidak menyalahgunakan kewenangan jabatan.",
         indicators: {
-            5: "Pegawai menunjukkan integritas dan akuntabilitas tertinggi, selalu bertanggung jawab penuh atas tugas dan keputusan, mengelola sumber daya dengan sangat efisien, dan menjadi teladan dalam penggunaan wewenang.",
-            4: "Pegawai melaksanakan tugas dengan jujur dan bertanggung jawab, mengelola sumber daya dengan baik, dan menggunakan kewenangan sesuai aturan yang berlaku.",
-            3: "Pegawai melaksanakan tugas sesuai prosedur, cukup bertanggung jawab dalam pengelolaan sumber daya, dan tidak menyalahgunakan wewenang.",
-            2: "Pegawai kadang kurang cermat dalam melaksanakan tugas, pengelolaan sumber daya kurang optimal, dan perlu pengawasan dalam penggunaan wewenang.",
-            1: "Pegawai tidak menunjukkan tanggung jawab yang memadai, lalai dalam pengelolaan sumber daya, atau ada indikasi penyalahgunaan wewenang.",
+            5: "Bertanggung jawab atas kepecayaan yang diberikan, tidak menyalahgunakan wewenang dalam mengelola Barang Milik Negara. Jujur, teliti, disiplin, dan berintegritas dalam melaksanakan tugas. Selain itu, mampu menginspirasi sekitar atas perilakunya.",
+            4: "Bertanggung jawab terhadap tugas jabatannya, jujur, teliti, disiplin, dan berintegritas, serta mengelola dan menggunakan Barang Milik Negara secara bertanggung jawab, efektif, dan efisien.",
+            3: "Masih memerlukan arahan agar dapat konsisten dalam menjalankan tanggung jawab terhadap tugas jabatan secara jujur, teliti, disiplin, berintegritas, serta dalam menggunakan Barang Milik Negara secara bertanggung jawab, efektif, dan efisien.",
+            2: "Kurang dapat dipercaya untuk menjalankan tugas secara jujur, teliti, disiplin dan berintegritas. Sesekali terdapat kecenderungan kurang bertanggung jawab dalam menggunakan Barang Milik Negara secara efektif dan efisien.",
+            1: "Perilaku kerja menunjukkan potensi pelanggaran integritas, tidak dapat mempertanggungjawabkan pelaksanaan tugas, seringkali tidak jujur, tidak teliti, tidak disiplin, dan tidak menunjukkan tanggung jawab terhadap penggunaan Barang Milik Negara.",
         },
     },
     {
         id: "kompeten",
         title: "Kompeten",
-        description: "1. Meningkatkan kompetensi diri untuk menjawab tantangan yang selalu berubah.\n\n2. Membantu orang lain belajar.\n\n3. Melaksanakan tugas dengan kualitas terbaik.",
+        description: "1. Meningkatkan kompetensi diri untuk menjawab tantangan yang selalu berubah.\n2. Membantu orang lain belajar.\n3. Melaksanakan tugas dengan kualitas terbaik.",
         indicators: {
-            5: "Pegawai secara proaktif mengembangkan kompetensi diri, menjadi mentor yang efektif bagi rekan kerja, dan konsisten menghasilkan pekerjaan berkualitas tinggi yang melebihi ekspektasi.",
-            4: "Pegawai aktif meningkatkan kompetensi, bersedia membantu rekan kerja belajar, dan melaksanakan tugas dengan kualitas yang baik.",
-            3: "Pegawai mengikuti pelatihan yang diwajibkan, sesekali membantu rekan kerja, dan melaksanakan tugas sesuai standar yang ditetapkan.",
-            2: "Pegawai kurang inisiatif dalam pengembangan diri, jarang membantu rekan kerja, dan kualitas pekerjaan kadang di bawah standar.",
-            1: "Pegawai tidak menunjukkan upaya pengembangan kompetensi, tidak membantu rekan kerja, dan kualitas pekerjaan tidak memenuhi standar.",
+            5: "Berusaha untuk melaksanakan tugas dengan kualitas terbaik, terus belajar untuk menjawab tuntutan kerja yang dinamis. Kemudian mampu dan mau mengajarkan kompetensi yang dimiliki ke orang lain.",
+            4: "Mampu menyelesaikan pekerjaan sesuai dengan keahlian dan tugas jabatannya, serta mau belajar untuk menjawab tuntutan kerja yang dinamis.",
+            3: "Memerlukan arahan dalam menyelesaikan tugas dan masih kurang menunjukkan inisiatif untuk belajar sendiri. Perlu dorongan untuk melaksanakan tugas dengan lebih optimal.",
+            2: "Kurang memiliki kecakapan dalam menyelesaikan tugas sehari-hari, serta tidak menunjukkan upaya untuk belajar meningkatkan kompetensi sehingga hasil pekerjaan sering diselesaikan apa adanya.",
+            1: "Tidak menguasai tugas karena tidak memiliki keahlian khusus, kemampuannya rendah dan minim usaha untuk belajar.",
         },
     },
     {
         id: "harmonis",
         title: "Harmonis",
-        description: "1. Menghargai setiap orang apapun latar belakangnya.\n\n2. Suka menolong orang lain.\n\n3. Membangun lingkungan kerja yang kondusif.",
+        description: "1. Menghargai setiap orang apapun latar belakangnya.\n2. Suka menolong orang lain.\n3. Membangun lingkungan kerja yang kondusif.",
         indicators: {
-            5: "Pegawai sangat menghargai keberagaman, aktif membantu rekan kerja tanpa diminta, dan menjadi agen positif dalam menciptakan lingkungan kerja yang harmonis dan inklusif.",
-            4: "Pegawai menghargai perbedaan, sering membantu rekan kerja, dan berkontribusi positif terhadap lingkungan kerja yang kondusif.",
-            3: "Pegawai menghormati rekan kerja dari berbagai latar belakang, bersedia membantu ketika diminta, dan menjaga hubungan kerja yang baik.",
-            2: "Pegawai kurang menunjukkan apresiasi terhadap keberagaman, jarang membantu rekan kerja, dan kontribusi terhadap harmoni lingkungan kerja minimal.",
-            1: "Pegawai tidak menghargai perbedaan, tidak membantu rekan kerja, atau bahkan mengganggu harmoni lingkungan kerja.",
+            5: "Secara konsisten membangun lingkungan kerja yang kondusif, saling menghargai, dapat menjaga hubungan kerja, peduli, saling menolong dengan rekan kerja, dapat bekerjasama dengan semua orang. Selain itu, dapat menularkan perilaku positif tersebut kepada rekan kerja.",
+            4: "Menunjukkan sikap saling menghargai, menjaga hubungan kerja yang baik, peduli, saling menolong dengan rekan kerja, dan dapat bekerjasama dengan semua rekan kerja dalam suasana yang positif.",
+            3: "Belum stabil dalam menghadapi perbedaan sehingga hubungan dengan rekan kerja belum konsisten harmonis. Terkadang memerlukan arahan untuk mampu bekerjasama, saling menghargai, saling menolong atau menunjukkan kepedulian di lingkungan kerja.",
+            2: "Kurang menunjukkan sikap saling menghargai, kurang dapat menjaga hubungan kerja yang baik, terkadang acuh, kurang peka terhadap rekan yang perlu bantuan, kurang terbuka untuk bekerjasama dengan semua orang sehingga berpotensi menghambat suasana kerja.",
+            1: "Menunjukkan perilaku tidak menghargai perbedaan, menolak untuk bekerjasama, tidak menghargai, acuh, serta sering menimbulkan situasi tidak kondusif dalam tim akibat ketidakmampuan mengelola keberagaman dalam hubungan kerja.",
         },
     },
     {
         id: "loyal",
         title: "Loyal",
-        description: "1. Memegang teguh ideologi Pancasila, Undang-Undang Dasar Negara Republik Indonesia Tahun 1945, setia pada NKRI serta pemerintahan yang sah.\n\n2. Menjaga nama baik sesama ASN, Pimpinan, Instansi dan Negara.\n\n3. Menjaga rahasia jabatan dan negara.",
+        description: "1. Memegang teguh ideologi Pancasila, Undang-Undang Dasar Negara Republik Indonesia Tahun 1945, setia pada NKRI serta pemerintahan yang sah.\n2. Menjaga nama baik sesama ASN, Pimpinan, Instansi dan Negara.\n3. Menjaga rahasia jabatan dan negara.",
         indicators: {
-            5: "Pegawai menunjukkan loyalitas tertinggi terhadap NKRI dan Pancasila, selalu menjaga nama baik instansi dengan integritas penuh, dan sangat dapat dipercaya dalam menjaga kerahasiaan.",
-            4: "Pegawai loyal terhadap negara dan instansi, menjaga nama baik organisasi, dan dapat dipercaya dalam menjaga informasi rahasia.",
-            3: "Pegawai menunjukkan loyalitas dasar terhadap negara dan instansi, cukup menjaga nama baik, dan memahami pentingnya kerahasiaan.",
-            2: "Pegawai kurang menunjukkan loyalitas, kadang kurang hati-hati dalam menjaga nama baik instansi, atau kurang teliti dalam menjaga kerahasiaan.",
-            1: "Pegawai tidak menunjukkan loyalitas yang memadai, merusak nama baik instansi, atau melanggar kerahasiaan jabatan.",
+            5: "Menunjukkan kesetiaan terhadap NKRI, dapat menjaga nama baik instansi, mematuhi ketentuan yang berlaku, melaksanakan tugas sesuai kebijakan pemerintah, serta menjaga rahasia jabatan dan negara. Selain itu, mampu mengajak dan menularkan perilaku loyal terhadap rekan kerja.",
+            4: "Setia terhadap NKRI, dapat menjaga nama baik instansi, mematuhi ketentuan yang berlaku, melaksanakan tugas sesuai kebijakan pemerintah, serta menjaga rahasia jabatan dan negara sesuai kode etik profesi ASN.",
+            3: "Masih memerlukan arahan untuk dapat menunjukkan perilaku yang menjaga kehormatan NKRI, instansi, serta profesi sebagai ASN. Perlu diberikan bimbingan agar dapat melaksanakan kebijakan pemerintah serta mau menjaga rahasia jabatan dan negara.",
+            2: "Kurang menunjukkan dedikasi terhadap NKRI,  kurang dapat menjaga nama baik instansi, terkadang ada potensi menyalahi ketentuan yang berlaku, menghindari dalam melaksanakan tugas sesuai kebijakan pemerintah, serta kurang dapat menjaga rahasia jabatan dan negara.",
+            1: "Tidak menunjukkan loyalitas terhadap NKRI dan/atau instansi, berperilaku yang berpotensi menurunkan kehormatan NKRI, instansi, citra profesi ASN, tidak mau melaksanakan tugas sesuai kebijakan pemerintah, serta mengabaikan ketentuan terkait rahasia jabatan dan negara.",
         },
     },
     {
         id: "adaptif",
         title: "Adaptif",
-        description: "1. Cepat menyesuaikan diri menghadapi perubahan.\n\n2. Terus berinovasi dan mengembangkan kreativitas.\n\n3. Bertindak proaktif.",
+        description: "1. Cepat menyesuaikan diri menghadapi perubahan.\n2. Terus berinovasi dan mengembangkan kreativitas.\n3. Bertindak proaktif.",
         indicators: {
-            5: "Pegawai sangat adaptif terhadap perubahan, menjadi pelopor inovasi, dan selalu proaktif dalam mengantisipasi dan merespons tantangan baru.",
-            4: "Pegawai cepat beradaptasi dengan perubahan, aktif berinovasi, dan sering bertindak proaktif dalam menghadapi situasi baru.",
-            3: "Pegawai dapat menyesuaikan diri dengan perubahan, sesekali memberikan ide inovatif, dan bertindak proaktif ketika diperlukan.",
-            2: "Pegawai lambat beradaptasi dengan perubahan, jarang berinovasi, dan cenderung reaktif daripada proaktif.",
-            1: "Pegawai menolak perubahan, tidak menunjukkan kreativitas atau inovasi, dan selalu reaktif terhadap situasi.",
+            5: "Cepat beradaptasi terhadap perubahan, menunjukkan kreativitas dan inovasi dalam melaksanakan tugas, serta secara aktif menginisiasi perbaikan proses kerja dan menerapkannya di lingkup unit kerja masing-masing.",
+            4: "Mampu beradaptasi terhadap perubahan, memperbaiki cara kerja, dan melaksanakan tugas sesuai kebutuhan/situasi kerja.",
+            3: "Jika diberikan arahan dapat beradaptasi, tetapi belum menunjukkan inisiatif dalam menjalankan tugas sehari-hari, ataupun dalam memperbaiki cara kerja.",
+            2: "Mengalami kesulitan beradaptasi terhadap perubahan, yang terkadang berdampak pada kesulitan pelaksanaan tugas sehari hari serta cenderung mempertahankan cara kerja lama meskipun tidak lagi sesuai kebutuhan.",
+            1: "Tidak mampu menyesuaikan diri/beradaptasi terhadap perubahan dan menolak penyesuaian/perbaikan proses kerja sehingga menghambat kelancaran tugas sehari-hari.",
         },
     },
     {
         id: "kolaboratif",
         title: "Kolaboratif",
-        description: "1. Memberi kesempatan kepada berbagai pihak untuk berkontribusi.\n\n2. Terbuka dalam bekerja sama untuk menghasilkan nilai tambah.\n\n3. Menggerakkan pemanfaatan berbagai sumber daya untuk tujuan bersama.",
+        description: "1. Memberi kesempatan kepada berbagai pihak untuk berkontribusi.\n2. Terbuka dalam bekerja sama untuk menghasilkan nilai tambah.\n3. Menggerakkan pemanfaatan berbagai sumber daya untuk tujuan bersama.",
         indicators: {
-            5: "Pegawai sangat kolaboratif, aktif melibatkan berbagai pihak, terbuka terhadap ide-ide baru, dan efektif mengkoordinasikan sumber daya untuk mencapai tujuan bersama dengan hasil optimal.",
-            4: "Pegawai kolaboratif, memberi kesempatan kepada rekan untuk berkontribusi, terbuka dalam bekerja sama, dan baik dalam mengelola sumber daya tim.",
-            3: "Pegawai bersedia bekerja sama, cukup terbuka terhadap kontribusi orang lain, dan dapat berkolaborasi dalam memanfaatkan sumber daya.",
-            2: "Pegawai kurang kolaboratif, jarang melibatkan orang lain, kurang terbuka terhadap masukan, dan lemah dalam koordinasi sumber daya.",
-            1: "Pegawai tidak kolaboratif, bekerja sendiri, menolak kontribusi orang lain, dan tidak efektif dalam memanfaatkan sumber daya bersama.",
+            5: "Secara aktif mendorong kerja sama di dalam tim, membuka kesempatan bagi semua pihak untuk berkontribusi, mau terlibat dalam kerja tim, terbuka terhadap masukan, serta mampu menggerakkan pemanfaatan sumber daya bersama untuk mencapai tujuan organisasi.",
+            4: "Mampu bekerja sama dengan baik, terlibat dalam kerja tim, serta terbuka terhadap masukan.",
+            3: "Bekerjasama dalam tim hanya saat diminta. Masih memerlukan arahan agar dapat lebih terbuka terhadap masukan, dan juga kurang menunjukkan inisiatif untuk terlibat dalam tim kerja.",
+            2: "Kesulitan bekerja sama dengan rekan kerja dalam tim, kurang dapat berkontribusi dalam kegiatan, serta kurang terbuka terhadap masukan sehingga berpotensi menghambat efektivitas kerja tim.",
+            1: "Tidak mampu bekerja sama, tidak mau mendengar masukan/pendapat orang lain dan menolak arahan dalam tim, serta seringkali menimbulkan hambatan dalam kolaborasi.",
         },
     },
 ]
@@ -301,10 +301,14 @@ export default function AssessmentPage({ params }: { params: Promise<{ id: strin
                                                         }}
                                                         className="flex gap-3 p-3 rounded-md bg-muted/40 hover:bg-muted/60 transition-colors"
                                                     >
-                                                        <div className="flex-shrink-0 w-24">
-                                                            <div className="flex items-center justify-center gap-1.5 bg-primary/10 px-2.5 py-1 rounded-md border border-primary/20 h-full">
-                                                                <span className="text-base leading-none">{"⭐".repeat(star)}</span>
-                                                                <span className="text-xs font-bold text-primary leading-none">
+                                                        <div className="flex-shrink-0 w-38">
+                                                            <div className="flex items-center gap-1.5 bg-primary/10 px-2.5 py-1.5 rounded-md border border-primary/20">
+                                                                <div className="flex gap-0.5 flex-1 justify-center">
+                                                                    {Array.from({ length: star }).map((_, i) => (
+                                                                        <span key={i} className="text-sm leading-none">⭐</span>
+                                                                    ))}
+                                                                </div>
+                                                                <span className="text-xs font-bold text-primary leading-none whitespace-nowrap">
                                                                     {star}/5
                                                                 </span>
                                                             </div>
@@ -323,7 +327,7 @@ export default function AssessmentPage({ params }: { params: Promise<{ id: strin
                                                     className="pt-2 border-t border-border/30"
                                                 >
                                                     <p className="text-xs text-muted-foreground italic text-center">
-                                                        💡 Gunakan panduan ini untuk memberikan penilaian yang objektif dan konsisten
+                                                        💡 Gunakan panduan ini untuk memberikan penilaian
                                                     </p>
                                                 </motion.div>
                                             </div>
