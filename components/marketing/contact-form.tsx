@@ -35,7 +35,7 @@ export function ContactForm() {
                     </div>
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email</Label>
-                        <Input id="email" placeholder="nama@instansi.go.id" type="email" disabled={isLoading} required />
+                        <Input id="email" placeholder="nama@kemnaker.go.id" type="email" disabled={isLoading} required />
                     </div>
                     <div className="grid gap-2">
                         <Label htmlFor="subject">Subjek</Label>

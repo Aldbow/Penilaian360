@@ -28,7 +28,7 @@ export function Hero() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="font-heading text-3xl font-bold sm:text-5xl md:text-6xl lg:text-7xl bg-gradient-to-br from-foreground to-muted-foreground bg-clip-text text-transparent"
                 >
-                    Penilaian 360 Derajat
+                    Penilaian 360 Pegawai
                     <br />
                     UKPBJ Kemnaker
                 </motion.h1>
@@ -39,7 +39,7 @@ export function Hero() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
                 >
-                    Tingkatkan kualitas kinerja dan nilai BerAKHLAK lingkungan kerja melalui penilaian kinerja yang transparan dan objektif antar pegawai.
+                    Bantu sesama rekan tumbuh lewat masukan anda<br></br> Penilaian ini rahasia untuk kenyamanan dan kejujuran bersama
                 </motion.p>
 
                 <motion.div

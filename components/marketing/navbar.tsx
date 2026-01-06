@@ -13,12 +13,12 @@ export function Navbar() {
 
     const routes = [
         {
-            href: "/#faq",
-            label: "FAQ",
-        },
-        {
             href: "/#information",
             label: "Information",
+        },
+        {
+            href: "/#faq",
+            label: "FAQ",
         },
         {
             href: "/#contact",
