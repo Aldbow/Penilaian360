@@ -93,13 +93,8 @@ export function UserSignUpForm({ className, ...props }: UserSignUpFormProps) {
         }
 
         if (authData.user) {
-            // Success!
+            // Success - show confirmation message
             setSuccess(true)
-
-            // Wait a moment then redirect
-            setTimeout(() => {
-                router.push("/dashboard/staff")
-            }, 1500)
         }
 
         setIsLoading(false)
@@ -116,11 +111,17 @@ export function UserSignUpForm({ className, ...props }: UserSignUpFormProps) {
                         <h3 className="text-lg font-semibold text-green-600 dark:text-green-400">
                             Pendaftaran Berhasil!
                         </h3>
-                        <p className="text-sm text-muted-foreground">
-                            Mengalihkan ke dashboard...
+                        <p className="text-sm text-muted-foreground max-w-[280px]">
+                            Silakan cek email Anda untuk mengkonfirmasi akun sebelum masuk.
                         </p>
                     </div>
-                    <Loader2 className="h-5 w-5 animate-spin text-primary" />
+                    <Button
+                        variant="outline"
+                        onClick={() => router.push("/login")}
+                        className="mt-2"
+                    >
+                        Kembali ke Halaman Login
+                    </Button>
                 </div>
             </div>
         )
