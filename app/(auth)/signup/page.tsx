@@ -1,18 +1,18 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import { UserAuthForm } from "@/components/auth/user-auth-form"
+import { UserSignUpForm } from "@/components/auth/user-signup-form"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft } from "lucide-react"
 import { PageTransition } from "@/components/ui/page-transition"
 
 export const metadata: Metadata = {
-    title: "Login",
-    description: "Login to your account",
+    title: "Daftar Akun",
+    description: "Daftar akun baru untuk mengakses sistem penilaian",
 }
 
-export default function LoginPage() {
+export default function SignUpPage() {
     return (
-        <div className="container flex h-screen w-screen flex-col items-center justify-center">
+        <div className="container flex min-h-screen w-screen flex-col items-center justify-center py-8">
             <Link
                 href="/"
                 className="absolute left-4 top-4 md:left-8 md:top-8"
@@ -22,23 +22,23 @@ export default function LoginPage() {
                     Kembali
                 </Button>
             </Link>
-            <PageTransition className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+            <PageTransition className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
                 <div className="flex flex-col space-y-2 text-center">
                     <h1 className="text-2xl font-semibold tracking-tight">
-                        Selamat Datang
+                        Buat Akun Baru
                     </h1>
                     <p className="text-sm text-muted-foreground">
-                        Masukkan email dan password untuk masuk ke akun Anda.
+                        Lengkapi data di bawah ini untuk mendaftar
                     </p>
                 </div>
-                <UserAuthForm />
+                <UserSignUpForm />
                 <p className="px-8 text-center text-sm text-muted-foreground">
-                    Belum punya akun?{" "}
+                    Sudah punya akun?{" "}
                     <Link
-                        href="/signup"
+                        href="/login"
                         className="underline underline-offset-4 hover:text-primary transition-colors"
                     >
-                        Daftar sekarang
+                        Masuk di sini
                     </Link>
                 </p>
             </PageTransition>
