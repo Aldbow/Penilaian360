@@ -2,16 +2,28 @@ name: Supabase Keep Alive
 
 on:
   schedule:
-    - cron: '0 0 */2 * *' # Every 2 days at midnight UTC
-  workflow_dispatch:
+    # Ping setiap 3 hari sekali pada jam 00:00 UTC
+    # Supabase pauses project setelah 7 hari tidak aktif (free tier)
+    - cron: '0 0 */3 * *'
+  workflow_dispatch: # Bisa dijalankan manual dari GitHub Actions
 
 jobs:
-  ping:
+  keep-alive:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Supabase to Prevent Pausing
+      - name: Ping Keep-Alive API
         run: |
-          echo "Pinging Supabase at ${{ secrets.SUPABASE_URL }}..."
-          curl -f -X GET '${{ secrets.SUPABASE_URL }}/rest/v1/profiles?select=id&limit=1' \
-          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
-          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
+          echo "🔄 Mengirim ping ke keep-alive endpoint..."
+          
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X GET "${{ secrets.APP_URL }}/api/keep-alive" \
+            -H "x-keep-alive-secret: ${{ secrets.KEEP_ALIVE_SECRET }}")
+          
+          echo "✅ HTTP Status: $RESPONSE"
+          
+          if [ "$RESPONSE" != "200" ]; then
+            echo "❌ Ping gagal! Status: $RESPONSE"
+            exit 1
+          fi
+          
+          echo "🎉 Supabase berhasil di-ping. Database tetap aktif!"
