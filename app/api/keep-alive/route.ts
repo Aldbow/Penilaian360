@@ -2,13 +2,21 @@ import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
 
 export const runtime = 'edge'
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
 
 export async function GET(request: NextRequest) {
-    // Validasi secret token agar endpoint tidak bisa diakses sembarangan
-    const authHeader = request.headers.get('x-keep-alive-secret')
-    const expectedSecret = process.env.KEEP_ALIVE_SECRET
+    // Validasi secret token (Mendukung Vercel Cron & metode lama)
+    const authHeader = request.headers.get('authorization')
+    const cronSecret = process.env.CRON_SECRET
+    
+    const legacyAuthHeader = request.headers.get('x-keep-alive-secret')
+    const legacySecret = process.env.KEEP_ALIVE_SECRET
 
-    if (!expectedSecret || authHeader !== expectedSecret) {
+    const isCronAuthorized = cronSecret && authHeader === `Bearer ${cronSecret}`
+    const isLegacyAuthorized = legacySecret && legacyAuthHeader === legacySecret
+
+    if (!isCronAuthorized && !isLegacyAuthorized) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
